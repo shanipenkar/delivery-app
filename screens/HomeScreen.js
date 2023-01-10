@@ -36,7 +36,7 @@ const HomeScreen = () => {
     // SafeAreaView is a component that makes sure that the content is not hidden behind the status bar
     <SafeAreaView className="bg-white pt-5">
       {/* Header */}
-      <View className="flex-row pb-3 items-center mx-4 space-x-2 px-4">
+      <View className="flex-row pb-3 items-center mx-4 space-x-2">
         <Image
           source={{
             uri: "https://links.papareact.com/wru",
