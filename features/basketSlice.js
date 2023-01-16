@@ -1,22 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const basketSliceSlice = createSlice({
-  name: 'basket',
-  initialState: {
-    items: []
-  },
-  reducers: {
-    addToBasket: (state, action) => {
-      state.items = [...state.items, action.payload]
-    },
-    removeFromBasket: (state, action) => {
-      state.items = [...state.items, action.payload]
-    },
-  }
+const initialState = {
+    items: [],
+}
+
+export const basketSlice = createSlice({
+    name: 'basket',
+    initialState,
+    reducers: {
+        addToBasket: (state, action) => {
+            state.items = [...state.items, action.payload]
+        },
+        removeFromBasket: (state, action) => {
+            const index = state.items.findIndex((item) =>  item.id === action.payload.id);
+            let newBasket = [...state.items];
+            if(index >= 0){
+                newBasket.splice(index, 1);
+            } else {
+                console.warn(`Can't remove product (id: ${action.payload.id}) as it's not in basket!`);
+            }
+            state.items = newBasket;
+        }
+    }
 });
 
-// Action creators are generated for each case reducer function
 export const { addToBasket, removeFromBasket } = basketSlice.actions;
 export const selectBasketItems = (state) => state.basket.items;
-
+export const selectBasketItemsWithId = (state, id) => state.basket.items.filter(item => item.id === id); //gets array of items with the given id
+export const selectBasketTotal = (state) => state.basket.items.reduce((total, item) => total + item.price, 0); //gets the total price of all items in the basket
 export default basketSlice.reducer;
