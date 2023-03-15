@@ -25,7 +25,7 @@ const DeliveryScreen = () => {
             <View className="flex-row justify-between">
               <View>
                 <Text className="text-lg text-gray-400">Estimated Arrival</Text>
-                <Text className="text-3xl font-bold">45-55 Minutes</Text>
+                <Text className="text-3xl font-bold">20-25 Minutes</Text>
               </View>
               <Image
                 source={{
@@ -72,13 +72,13 @@ const DeliveryScreen = () => {
       />
       <View className="flex-1">
         <Text className="text-lg">
-          Shani Penkar
+          Ori Penkar
         </Text>
         <Text className="text-gray-400">
           Your Rider
         </Text>
       </View>
-      <Text className="text-[#00CCBB] text-lg mr-5 fonr-bold">Call</Text>
+      <Text className="text-[#00CCBB] text-lg mr-5 font-bold">Call</Text>
       </SafeAreaView>
 
     </View>
